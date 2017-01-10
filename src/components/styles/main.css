@@ -1,0 +1,145 @@
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+/*==============================================
+              TABLE
+================================================*/
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+.table > thead > tr > th{
+  background: steelblue;
+  height: 54px;
+  font-weight: lighter;
+  text-shadow: 0 1px 0 #38678f;
+  color: white;
+  border: 1px solid #38678f;
+  box-shadow: inset 0px 1px 2px #568ebd;
+  transition: all 0.2s;
+  vertical-align: middle;
+}
+.table > tbody > tr > td{
+  padding: 12px 8px;
+}
+.table tbody tr:nth-child(odd) {
+  background: #eee;
+}
+
+/*==============================================
+            BUNDLES  HEADER
+================================================*/
+
+
+.header {
+  padding: 30px 10px;
+  text-align: center;
+}
+
+/* ------ search filter ------- */
+
+.search-container{
+ position: relative;
+ padding: 4px 10px;
+ display: inline-block;
+}
+
+
+.search-container label {
+  float: left;
+  font-weight: normal;
+  margin-left: 4px;
+  font-size: 16px;
+}
+
+.search-container input{
+  padding: 7px 14px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* ------ new bundle btn ------- */
+
+.new-bundle-container .btn{
+  float: left;
+  margin-top: 28px;
+  margin-left: 20px;
+}
+
+
+/*==============================================
+          MODAL FORM
+================================================*/
+
+
+.modal-body{
+  background: white;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.ReactModal__Body--open{
+  box-shadow: 0px 50px 30px -30px rgba(0,0,0,0.3);
+}
+
+.title{
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #551A8B;;
+  font-weight: 300;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.description{
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+.input-group {
+  display: block;
+  min-width: 200px;
+}
+.input-group > label{
+  display: inline-block;
+  margin-bottom: 4px;
+  color:  #551A8B;;
+}
+
+input[type="text"], input[type="email"], input[type="date"], input[type="password"] {
+  padding: 10px 20px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.button{
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 3px;
+  /*background:  #551A8B; */
+  background: #5cb85c;
+  color: white;
+/*   text-transform: uppercase; */
+  letter-spacing: 1px;
+  display: inline-block;
+  cursor: pointer;
+}
