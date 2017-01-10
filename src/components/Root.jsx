@@ -6,7 +6,7 @@ import Bundles from './Bundles';
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Bundles} />
+      <Route path="bundles" component={Bundles} />
     </Router>
   </Provider>
 );
