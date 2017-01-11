@@ -5,7 +5,8 @@ const fakeDatabase = {
   bundles:[
     {
       name: 'Colorado Book Store',
-      licenses: '10/20',
+      used_licenses: 10,
+      total_licenses:20,
       bundle_type: 'full',
       country: 'USA',
       id: 1,
@@ -13,7 +14,8 @@ const fakeDatabase = {
     },
     {
       name: 'Briths Columbia Library',
-      licenses: '10/20',
+      used_licenses: 10,
+      total_licenses:20,
       bundle_type: 'full',
       country: 'CA',
       id: 2,
@@ -21,7 +23,8 @@ const fakeDatabase = {
     },
     {
       name: 'Miami Library',
-      licenses: '10/20',
+      used_licenses: 10,
+      total_licenses:20,
       bundle_type: 'full',
       country: 'USA',
       id: 3,
@@ -29,7 +32,8 @@ const fakeDatabase = {
     },
     {
       name: 'Vancouver Book Store',
-      licenses: '10/20',
+      used_licenses: 10,
+      total_licenses:20,
       bundle_type: 'full',
       country: 'CA',
       id: 4,
@@ -37,7 +41,8 @@ const fakeDatabase = {
     },
     {
       name: 'Boston Library',
-      licenses: '10/20',
+      used_licenses: 10,
+      total_licenses:20,
       bundle_type: 'full',
       country: 'USA',
       id: 5,
@@ -45,7 +50,8 @@ const fakeDatabase = {
     },
     {
       name: 'Russia',
-      licenses: '10/20',
+      used_licenses: 10,
+      total_licenses:20,
       bundle_type: 'full',
       country: 'RS',
       id: 6,
@@ -53,7 +59,8 @@ const fakeDatabase = {
     },
     {
       name: 'Bundle Australia',
-      licenses: '10/20',
+      used_licenses: 10,
+      total_licenses:20,
       bundle_type: 'full',
       country: 'AU',
       id: 7,
@@ -61,7 +68,8 @@ const fakeDatabase = {
     },
     {
       name: 'American Books',
-      licenses: '99/200',
+      used_licenses: 10,
+      total_licenses:20,
       bundle_type: 'full',
       country: 'USA',
       id: 8,
@@ -69,7 +77,8 @@ const fakeDatabase = {
     },
     {
       name: 'Russia Book Store',
-      licenses: '11/20',
+      used_licenses: 10,
+      total_licenses:20,
       bundle_type: 'full',
       country: 'Russia',
       id: 9,
@@ -77,7 +86,8 @@ const fakeDatabase = {
     },
     {
       name: 'Nacho',
-      licenses: '15/20',
+      used_licenses: 10,
+      total_licenses:20,
       bundle_type: 'full',
       country: 'Venezuela',
       id: 10,
@@ -85,8 +95,9 @@ const fakeDatabase = {
     },
     {
       name: 'Parada Inteligente',
-      licenses: '17/20',
-      bundle_type: 'full',
+      used_licenses: 10,
+      total_licenses:20,
+      bundle_type: 'custom',
       country: 'Venezuela',
       id: 11,
       description: 'description',
