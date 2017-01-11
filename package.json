@@ -29,5 +29,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "http://http://35.167.51.31/webadmin"
+  "homepage": "http://127.0.0.1/"
 }
