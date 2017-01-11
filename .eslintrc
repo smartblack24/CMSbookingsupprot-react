@@ -1,0 +1,15 @@
+# {
+#   "extends": "airbnb",
+#   "parserOptions": {
+#     "ecmaFeatures": {
+#       "experimentalObjectRestSpread": true
+#     },
+#   },
+#   "rules": {
+#     "linebreak-style": ["error", "windows"],
+#     },
+#     "env": {
+#       "browser": true,
+#       "node": true
+#     }
+# }
