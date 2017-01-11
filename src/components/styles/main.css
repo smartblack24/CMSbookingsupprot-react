@@ -135,11 +135,35 @@ input[type="text"], input[type="email"], input[type="date"], input[type="passwor
   padding: 10px 20px;
   margin-top: 10px;
   border-radius: 3px;
-  /*background:  #551A8B; */
   background: #5cb85c;
   color: white;
-/*   text-transform: uppercase; */
   letter-spacing: 1px;
   display: inline-block;
   cursor: pointer;
+  border-color: transparent;
+}
+
+
+/*====================================*/
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+}
+
+.styled-select select {
+    background: transparent;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+
+}
+
+.styled-select.slate {
+   height: 34px;
+   width: 100%;
+   border: 1px solid #999;
+   border-radius: 3px;
+   margin-bottom: 20px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
 }
