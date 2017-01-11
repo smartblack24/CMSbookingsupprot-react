@@ -27,9 +27,16 @@ const bundles = combineReducers({
 
 export default bundles;
 
-const getBundles = (state) => (
-  state.allIds.map(id => state.byId[id])
-);
+const getBundles = (state) => {
+  return state.allIds.map(id => {
+    const bundle = state.byId[id];;
+    bundle['licenses'] = `${bundle['used_licenses']}/${bundle['total_licenses']}`;
+    delete bundle['used_licenses'];
+    delete bundle['total_licenses'];
+    return bundle;
+  });
+}
+
 export const getFilteredBundles = (state, match) => {
   const bundles = getBundles(state);
   return  bundles.filter((bundle) => {
