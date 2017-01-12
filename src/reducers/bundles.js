@@ -14,6 +14,8 @@ const allIds = ( state = [], action) => {
   switch (action.type) {
     case 'FETCH_BUNDLES_SUCCESS':
       return action.response.result;
+    case 'ADD_BUNDLE':
+      return [...state, action.response.result];
     default:
       return state;
   }
@@ -29,7 +31,7 @@ export default bundles;
 
 const getBundles = (state) => {
   return state.allIds.map(id => {
-    const bundle = state.byId[id];;
+    const bundle = Object.assign({},state.byId[id]);
     bundle['licenses'] = `${bundle['used_licenses']}/${bundle['total_licenses']}`;
     delete bundle['used_licenses'];
     delete bundle['total_licenses'];

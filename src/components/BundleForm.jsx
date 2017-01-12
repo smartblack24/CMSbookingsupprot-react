@@ -10,10 +10,10 @@ class BundleForm extends React.Component {
     return;
    }
   handleUpdate(form) {
-    console.log(form.$form);
-    if(!form.$form.valid){
-      console.log(form.$form.valid);
-    }
+    // console.log(form.$form);
+    // if(!form.$form.valid){
+    //   console.log(form.$form.valid);
+    // }
    }
   handleSubmit(values) {
     const { addBundle } = this.props;

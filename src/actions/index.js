@@ -7,10 +7,17 @@ export const setSearch = search => ({
   searchFilter: search,
 });
 
-export const addBundle = bundle => ({
-  type: 'ADD_BUNDLE',
-  bundle,
-});
+export const addBundle = bundle =>  (dispatch, getState) => {
+
+  return api.addBundle(bundle).then(
+    response => {
+      dispatch({
+        type: 'ADD_BUNDLE',
+        response: normalize(response, schema.bundle),
+      })
+    }
+  )
+};
 
 export const fetchBundles = () => (dispatch, getState) => {
   dispatch({

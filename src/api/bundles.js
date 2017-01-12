@@ -1,3 +1,4 @@
+import { v4 } from 'node-uuid';
 // This is a fake in-memory implementation of something
 // that would be implemented by calling a REST server.
 
@@ -117,12 +118,17 @@ export const fetchBundles = () =>
     return fakeDatabase.bundles;
   });
 
-export const addBundle = (text) =>
+export const addBundle = (data) =>
 delay(500).then(() => {
   const bundle = {
-    text,
-    completed: false,
+    name: data.name,
+    used_licenses: 10,
+    total_licenses:40,
+    bundle_type: data.bundle_type,
+    country: data.country,
+    id: v4(),
+    description: data.description,
   };
-  fakeDatabase.todos.push(bundle);
+  fakeDatabase.bundles.push(bundle);
   return bundle;
 });
