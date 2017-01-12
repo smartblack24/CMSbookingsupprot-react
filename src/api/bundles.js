@@ -122,8 +122,8 @@ export const addBundle = (data) =>
 delay(500).then(() => {
   const bundle = {
     name: data.name,
-    used_licenses: 10,
-    total_licenses:40,
+    used_licenses: 0,
+    total_licenses:data.total_licenses,
     bundle_type: data.bundle_type,
     country: data.country,
     id: v4(),
@@ -132,3 +132,22 @@ delay(500).then(() => {
   fakeDatabase.bundles.push(bundle);
   return bundle;
 });
+
+const URL = "http://35.167.51.31/api/booksaralive/bundles"
+
+export const postBundle = (bundle) => {
+
+  const searchParams = Object.keys(bundle).map((key) => {
+    return encodeURIComponent(key) + '=' + encodeURIComponent(bundle[key]);
+  }).join('&');
+
+  fetch(URL, {
+        method: "post",
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body:searchParams
+    })
+      .then(res => res.json())
+      .then(res => console.log('server',res));
+}

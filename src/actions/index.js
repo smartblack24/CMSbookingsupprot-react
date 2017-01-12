@@ -8,7 +8,7 @@ export const setSearch = search => ({
 });
 
 export const addBundle = bundle =>  (dispatch, getState) => {
-
+  api.postBundle(bundle);
   return api.addBundle(bundle).then(
     response => {
       dispatch({
