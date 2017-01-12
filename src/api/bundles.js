@@ -149,5 +149,11 @@ export const postBundle = (bundle) => {
         body:searchParams
     })
       .then(res => res.json())
-      .then(res => console.log('server',res));
+      .then(res => {
+        const bundle = {...res}
+        delete bundle['_id'];
+        delete bundle['__v'];
+        console.log(bundle);
+        return bundle;
+      });
 }
