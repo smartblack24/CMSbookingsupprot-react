@@ -3,21 +3,19 @@ import { connect } from 'react-redux';
 import { LocalForm, Control } from 'react-redux-form';
 import * as actions from '../actions';
 
-const required = (val) => val && val.length > 2;
+/*eslint-disable no-unused-vars */
+
+const required = (val) => val && val.length > 0;
+const length = (val) => val && val.length > 2;
 
 class BundleForm extends React.Component {
-  handleChange(values) {
-    return;
-   }
-  handleUpdate(form) {
-    // console.log(form.$form);
-    // if(!form.$form.valid){
-    //   console.log(form.$form.valid);
-    // }
-   }
+
   handleSubmit(values) {
-    const { addBundle } = this.props;
-    addBundle(values);
+    const bundle = Object.assign({}, values);
+    bundle['total_licenses'] = parseInt(bundle['total_licenses'],10);
+    const { addBundle, onSubmitSuccess } = this.props;
+    addBundle(bundle).then(alert('The bundle was created'));
+    onSubmitSuccess();
    }
   render() {
     return (
@@ -29,13 +27,14 @@ class BundleForm extends React.Component {
           Bundle content
         </div>
         <LocalForm
-          onUpdate={(form) => this.handleUpdate(form)}
-          onChange={(values) => this.handleChange(values)}
           onSubmit={(values) => this.handleSubmit(values)}
         >
           <div className="input-group">
             <label htmlFor="name">Name</label>
-            <Control.text model=".name" />
+            <Control.text
+               model=".name"
+               required
+             />
           </div>
           <div className="input-group">
             <label htmlFor="bundle_type">Bundle Type</label>
@@ -48,21 +47,34 @@ class BundleForm extends React.Component {
               </Control.select>
           </div>
           <div className="input-group">
+            <label htmlFor="licenses">Licenses</label>
+            <Control
+              type="number"
+              model=".total_licenses"
+              required
+              />
+          </div>
+          <div className="input-group">
             <label htmlFor="country">Country</label>
             <Control.text
               model=".country"
-              validators={{ required }} />
+              required
+            />
           </div>
           <div className="input-group">
             <label htmlFor="description">Description</label>
             <Control.text
               model=".description"
-              validators={{ required }} />
+              required
+            />
           </div>
           <div className="text-center">
             <button className="button" type="submit">
               Create
             </button>
+            <Control.reset model="local" className="button button-clear">
+              Clear Values
+            </Control.reset>
           </div>
         </LocalForm>
       </div>
