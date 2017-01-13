@@ -1,14 +1,26 @@
 import React from 'react';
 
+const valuesOrder = bundle => {
+  const values = [];
+  values.push(bundle['id']);
+  values.push(bundle['name']);
+  values.push(bundle['bundle_type']);
+  values.push(bundle['country']);
+  values.push(bundle['language']);
+  values.push(bundle['licenses']);
+  values.push(bundle['description']);
+  return values;
+}
+
 const TableContent = ({ bundles }) =>
  (
    <tbody>
      {bundles.map(b => (
        <TableRow
          key={b.id}
-         bundle={Object.values(b)}
+         bundle={valuesOrder(b)}
        />
-       ))}
+    ))}
    </tbody>
 );
 
@@ -19,7 +31,7 @@ TableContent.propTypes = {
 
 const TableRow = ({ bundle }) => (
   <tr>
-    {bundle.map(info => <td key={info}>{info}</td>)}
+    {bundle.map((info, i) => <td key={i}>{info}</td>)}
   </tr>
 );
 

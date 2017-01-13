@@ -33,8 +33,6 @@ const getBundles = (state) => {
   return state.allIds.map(id => {
     const bundle = Object.assign({},state.byId[id]);
     bundle['licenses'] = `${bundle['used_licenses']}/${bundle['total_licenses']}`;
-    delete bundle['used_licenses'];
-    delete bundle['total_licenses'];
     return bundle;
   });
 }
@@ -43,6 +41,9 @@ export const getFilteredBundles = (state, match) => {
   const bundles = getBundles(state);
   return  bundles.filter((bundle) => {
       const regex = new RegExp(match, 'gi');
+      if (bundle.country === undefined){
+        return bundle.name.match(regex) || bundle.bundle_type.match(regex);
+      }
       return bundle.name.match(regex) || bundle.country.match(regex)
           || bundle.bundle_type.match(regex);
     });

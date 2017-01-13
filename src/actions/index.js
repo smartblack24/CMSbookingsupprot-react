@@ -8,7 +8,6 @@ export const setSearch = search => ({
 });
 
 export const addBundle = bundle =>  (dispatch, getState) => {
-  api.postBundle(bundle);
   return api.addBundle(bundle).then(
     response => {
       dispatch({
@@ -16,7 +15,7 @@ export const addBundle = bundle =>  (dispatch, getState) => {
         response: normalize(response, schema.bundle),
       })
     }
-  )
+  );
 };
 
 export const fetchBundles = () => (dispatch, getState) => {

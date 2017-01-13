@@ -37,6 +37,10 @@ th, td {
             BUNDLES  HEADER
 ================================================*/
 
+.breadcrumbs a{
+  font-size: 30px;
+  text-decoration: none;
+}
 
 .header {
   padding: 30px 10px;
@@ -97,7 +101,7 @@ th, td {
 .title{
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   color: #551A8B;;
   font-weight: 300;
   font-size: 24px;
@@ -107,7 +111,7 @@ th, td {
 .description{
   text-align: center;
   color: #666;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 .input-group {
   display: block;
@@ -130,6 +134,10 @@ input[type="text"], input[type="email"], input[type="date"],
   box-sizing: border-box;
   outline: none;
   font-family: 'Roboto', sans-serif;
+}
+
+.last-input-group input {
+  margin-bottom: 5px;
 }
 
 .button{

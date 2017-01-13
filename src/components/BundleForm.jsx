@@ -14,7 +14,7 @@ class BundleForm extends React.Component {
     const bundle = Object.assign({}, values);
     bundle['total_licenses'] = parseInt(bundle['total_licenses'],10);
     const { addBundle, onSubmitSuccess } = this.props;
-    addBundle(bundle).then(alert('The bundle was created'));
+    addBundle(bundle).then(()=> alert('A bundle was created!'));
     onSubmitSuccess();
    }
   render() {
@@ -62,6 +62,13 @@ class BundleForm extends React.Component {
             />
           </div>
           <div className="input-group">
+            <label htmlFor="country">Language</label>
+            <Control.text
+              model=".language"
+              required
+            />
+          </div>
+          <div className="input-group last-input-group">
             <label htmlFor="description">Description</label>
             <Control.text
               model=".description"
