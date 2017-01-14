@@ -2,6 +2,15 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
+.margin-bottom{
+  margin-bottom: 40px;
+}
+
+.margin-top{
+  margin-top: 40px;
+}
+
+
 
 /*==============================================
               TABLE
@@ -161,7 +170,7 @@ input[type="text"], input[type="email"], input[type="date"],
 }
 
 
-/*====================================*/
+/*================== Select input style ==================*/
 .styled-select {
    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
 }
@@ -183,4 +192,11 @@ input[type="text"], input[type="email"], input[type="date"],
 .styled-select.slate select {
    border: 1px solid #ccc;
    font-size: 16px;
+}
+
+/*================== Login Form ==================*/
+.login-form-container{
+  border: 1px solid #afacac;
+  border-radius: 4px;
+  padding: 40px 60px;
 }

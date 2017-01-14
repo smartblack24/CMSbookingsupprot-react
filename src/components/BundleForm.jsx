@@ -11,7 +11,7 @@ const length = (val) => val && val.length > 2;
 class BundleForm extends React.Component {
 
   handleSubmit(values) {
-    const bundle = Object.assign({}, values);
+    const bundle = {...values};
     bundle['total_licenses'] = parseInt(bundle['total_licenses'],10);
     const { addBundle, onSubmitSuccess } = this.props;
     addBundle(bundle).then(()=> alert('A bundle was created!'));
