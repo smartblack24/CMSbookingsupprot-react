@@ -15,3 +15,5 @@ const user = (state = null, action) => {
 }
 
 export default user;
+
+export const getUser = state => state;
