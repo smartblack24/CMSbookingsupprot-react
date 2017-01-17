@@ -1,11 +1,41 @@
 import { normalize } from 'normalizr';
+import { browserHistory } from 'react-router';
 import * as schema from './schema';
-import * as api from '../api/bundles'
+import * as api from '../api/bundles';
+import * as apiLogin from '../api/session';
 
 export const setSearch = search => ({
   type: 'SET_SEARCH',
   searchFilter: search,
 });
+
+export const login = (username, password) => (dispatch, getState) => {
+  dispatch({
+    type: 'REQUEST_LOGIN',
+    username,
+  });
+  return apiLogin.login(username, password).then(
+    response => {
+      dispatch({
+        type: 'LOGIN_SUCCESS',
+        user: response,
+      });
+      localStorage.setItem('token', JSON.stringify(response.jwt));
+      if(response.type === 'admin'){
+        browserHistory.push('/bundles');
+      }
+      return response;
+    },
+    err => {
+      dispatch({
+        type: 'LOGIN_FAILURE',
+        message: err.message || 'something went wrong with log in',
+      });
+      alert('invalid user');
+      return err;
+    }
+  );
+};
 
 export const addBundle = bundle =>  (dispatch, getState) => {
   return api.addBundle(bundle).then(
