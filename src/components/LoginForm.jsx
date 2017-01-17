@@ -1,10 +1,13 @@
 import React from 'react';
 import { LocalForm, Control } from 'react-redux-form';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class LoginForm extends React.Component {
+
   handleSubmit(values) {
-    console.log(values);
-   }
+    this.props.login(values.username,values.password);
+  }
   render() {
     return (
       <div className="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 login-form-container">
@@ -27,8 +30,8 @@ class LoginForm extends React.Component {
              />
           </div>
           <div className="text-center">
-            <button className="button" type="submit">
-              Sign in
+            <button className="button" >
+              Log in
             </button>
             <Control.reset model="local" className="button button-clear">
               Clear Values
@@ -38,6 +41,12 @@ class LoginForm extends React.Component {
       </div>
     );
   }
-}
+};
+
+
+LoginForm = connect(
+  null,
+  actions
+)(LoginForm);
 
 export default LoginForm;
