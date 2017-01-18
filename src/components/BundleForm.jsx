@@ -10,12 +10,16 @@ const length = (val) => val && val.length > 2;
 
 class BundleForm extends React.Component {
 
+  handleButtonClose() {
+      this.props.closeModal();
+  }
+
   handleSubmit(values) {
     const bundle = {...values};
     bundle['total_licenses'] = parseInt(bundle['total_licenses'],10);
-    const { addBundle, onSubmitSuccess } = this.props;
+    const { addBundle, closeModal } = this.props;
     addBundle(bundle).then(()=> alert('A bundle was created!'));
-    onSubmitSuccess();
+    closeModal();
    }
   render() {
     return (
@@ -25,6 +29,12 @@ class BundleForm extends React.Component {
         </div>
         <div className="description">
           Bundle content
+        </div>
+        <div
+          className="close-modal"
+          onClick={ () => this.handleButtonClose()}
+          >
+          x
         </div>
         <LocalForm
           onSubmit={(values) => this.handleSubmit(values)}

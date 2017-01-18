@@ -53,7 +53,7 @@ class NewBundle extends React.Component {
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
         >
-          <BundleForm onSubmitSuccess={  this.closeModal } />
+          <BundleForm closeModal={  this.closeModal } />
         </Modal>
       </div>
     );

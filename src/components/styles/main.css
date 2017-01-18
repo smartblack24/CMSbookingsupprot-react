@@ -98,9 +98,34 @@ th, td {
 
 
 .modal-body{
+  position: relative;
   background: white;
   padding: 0 20px;
   width: 100%;
+}
+
+.close-modal{
+  display: block;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  top: 16px;
+  right: 7px;
+  /*border: 2px solid;*/
+  /*border-color: #551A8B;*/
+  /*border-radius: 50%;*/
+  font-size: 18px;
+  color: #551A8B;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  line-height: 15px;
+  transition: all .5s ease-in-out;
+}
+
+.close-modal:hover{
+  border-color: #D91E18;
+  color: #D91E18;
 }
 
 .ReactModal__Body--open{
@@ -111,7 +136,7 @@ th, td {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 5px;
-  color: #551A8B;;
+  color: #551A8B;
   font-weight: 300;
   font-size: 24px;
   letter-spacing: 1px;
