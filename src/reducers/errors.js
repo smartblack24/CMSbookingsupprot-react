@@ -15,3 +15,5 @@ const errors = ( state = null, action) => {
 }
 
 export default errors;
+
+export const getErrors = state => state;

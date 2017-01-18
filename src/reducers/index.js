@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import bundles, * as fromBundles from './bundles';
 import searchFilter from './searchFilter';
 import user, * as fromUser from './user';
-import errors from './errors';
+import errors, * as fromErrors from './errors';
 
 const bookApp = combineReducers({
   bundles,
@@ -18,3 +18,7 @@ export const getFilteredBundles = state =>
 
 export const getUser = state =>
   fromUser.getUser(state.user);
+
+export const getErrors = state =>
+  fromErrors.getErrors(state.errors);
+  
