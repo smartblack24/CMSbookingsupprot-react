@@ -31,7 +31,6 @@ export const login = (username, password) => (dispatch, getState) => {
         type: 'LOGIN_FAILURE',
         message: err.message || 'something went wrong with log in',
       });
-      alert('invalid user');
       return err;
     }
   );

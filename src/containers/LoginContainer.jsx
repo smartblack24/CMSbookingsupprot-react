@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { getErrors } from '../reducers';
 import Login from '../components/Login';
 import AlertContainer from 'react-alert';
-
-//icon: <img src="path/to/some/img/32x32.png" />
-
+import icon from '../images/material_error.png';
 
 class LoginContainer extends React.Component {
   constructor(props) {
@@ -13,15 +11,17 @@ class LoginContainer extends React.Component {
     this.alertOptions = {
       offset: 14,
       position: 'top left',
-      theme: 'light',
-      time: 5000,
+      theme: 'dark',
+      time: 6000,
       transition: 'scale'
     };
   }
 
   showAlert() {
-    msg.show('Error', {
-      type: 'error'
+    const { errors } = this.props
+    this.msg.show(errors.message, {
+      type: 'error',
+      icon: <img src={icon} alt="alert" />,
     });
   }
 
@@ -34,7 +34,7 @@ class LoginContainer extends React.Component {
   render() {
     return(
       <div>
-        <AlertContainer ref={(a) => global.msg = a} {...this.alertOptions} />
+        <AlertContainer ref={(a) => this.msg = a} {...this.alertOptions} />
         <Login  />
       </div>
     )
@@ -46,6 +46,6 @@ const mapStateToProps = state => ({
   errors: getErrors(state),
 });
 
-LoginContainer = connect(mapStateToProps, null)(Login);
+LoginContainer = connect(mapStateToProps, null)(LoginContainer);
 
 export default LoginContainer;

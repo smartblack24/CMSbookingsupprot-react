@@ -7,7 +7,7 @@ const errors = ( state = null, action) => {
     case 'LOGIN_FAILURE':
       return {
          type: 'LOGIN_FAILURE',
-         message: action.message
+         message: action.message || 'password or username are incorrect.'
       };
     default:
       return state;

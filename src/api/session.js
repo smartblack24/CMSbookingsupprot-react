@@ -19,5 +19,5 @@ export const login = (username, password) =>
         };
         return user;
       }
-        throw Error('something went wrong!');
+        throw Error('user doesnt exist!');
   });

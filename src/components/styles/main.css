@@ -225,3 +225,19 @@ input[type="text"], input[type="email"], input[type="date"],
   border-radius: 4px;
   padding: 40px 60px;
 }
+
+
+/*==============================================
+          REACT ALERT
+================================================*/
+
+
+/*============ error alert ==============*/
+
+.react-alerts .error .icon{
+  margin-bottom: 18px;
+}
+
+.react-alerts .error .icon > img {
+  width: 100%;
+}
