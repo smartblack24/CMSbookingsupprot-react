@@ -1,22 +1,49 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getErrors } from '../reducers';
 import Login from '../components/Login';
+import AlertContainer from 'react-alert';
+
+//icon: <img src="path/to/some/img/32x32.png" />
+
 
 class LoginContainer extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.alertOptions = {
+      offset: 14,
+      position: 'top left',
+      theme: 'light',
+      time: 5000,
+      transition: 'scale'
+    };
+  }
 
+  showAlert() {
+    msg.show('Error', {
+      type: 'error'
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if(this.props.errors){
+      this.showAlert();
+    }
   }
 
   render() {
     return(
-      <Login  />
+      <div>
+        <AlertContainer ref={(a) => global.msg = a} {...this.alertOptions} />
+        <Login  />
+      </div>
     )
   }
 }
 
 
 const mapStateToProps = state => ({
-  errors: state.errors,
+  errors: getErrors(state),
 });
 
 LoginContainer = connect(mapStateToProps, null)(Login);
