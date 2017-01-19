@@ -58,12 +58,13 @@ export const fetchBundles = () => (dispatch, getState) => {
         type: 'FETCH_BUNDLES_SUCCESS',
         response: normalize(response, schema.arrayOfBundles),
       });
-    },
+    }
+  ).catch(
     error => {
       dispatch({
         type: 'FETCH_BUNDLES_FAILURE',
         message: error.message || 'something went wrong with server',
-      })
+      });
     }
   );
 };
