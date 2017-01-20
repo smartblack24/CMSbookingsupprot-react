@@ -6,7 +6,7 @@ import * as actions from '../actions';
 class LoginForm extends React.Component {
 
   handleSubmit(values) {
-    this.props.login(values.username,values.password);
+    this.props.login(values.email,values.password);
   }
   render() {
     return (
@@ -15,9 +15,10 @@ class LoginForm extends React.Component {
           onSubmit={(values) => this.handleSubmit(values)}
           >
           <div className="input-group">
-            <label htmlFor="name">Username</label>
-            <Control.text
-               model=".username"
+            <label htmlFor="name">Email</label>
+            <Control
+              type="email"
+               model=".email"
                required
              />
           </div>
