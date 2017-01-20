@@ -1,12 +1,14 @@
 const URL = "http://35.167.51.31/api/booksaralive/bundles"
 
 export const fetchBundles = () => {
-  return fetch(URL).then(res => res.json())
-    .then(res => res.docs);
+  const token = localStorage.getItem('token');
+  return fetch(URL, {
+    headers: {'Authorization': `Bearer ${token}`}
+  }).then(res => res.json());
 }
 
 export const addBundle = (bundle) => {
-  const searchParams = Object.keys(bundle).map((key) => {
+  const encodedParams = Object.keys(bundle).map((key) => {
     return encodeURIComponent(key) + '=' + encodeURIComponent(bundle[key]);
   }).join('&');
 
@@ -15,6 +17,6 @@ export const addBundle = (bundle) => {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         },
-        body:searchParams
+        body:encodedParams
     }).then(res => res.json());
 }
