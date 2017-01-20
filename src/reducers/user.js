@@ -2,9 +2,9 @@ const user = (state = null, action) => {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
       return {
-        username: action.user.username,
+        name: action.user.name || 'vinz',
         id: action.user.id,
-        type: action.user.type
+        role: action.user.role ,
       };
     case 'LOGIN_FAILURE':
       return null;

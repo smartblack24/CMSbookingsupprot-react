@@ -9,21 +9,23 @@ export const setSearch = search => ({
   searchFilter: search,
 });
 
-export const login = (username, password) => (dispatch, getState) => {
+export const login = (email, password) => (dispatch, getState) => {
   dispatch({
     type: 'REQUEST_LOGIN',
-    username,
+    email,
   });
-  return apiLogin.login(username, password).then(
+
+  return apiLogin.login(email, password).then(
     response => {
       dispatch({
         type: 'LOGIN_SUCCESS',
         user: response,
       });
-      localStorage.setItem('token', JSON.stringify(response.jwt));
-      if(response.type === 'admin'){
-        browserHistory.push('/bundles');
-      }
+      localStorage.setItem('token', JSON.stringify(response.token));
+      // if(response.role === 'admin'){
+      //   browserHistory.push('/bundles');
+      // }
+      browserHistory.push('/bundles');
       return response;
     },
     err => {
@@ -54,6 +56,7 @@ export const fetchBundles = () => (dispatch, getState) => {
 
   return api.fetchBundles().then(
     response => {
+      console.log(response);
       dispatch({
         type: 'FETCH_BUNDLES_SUCCESS',
         response: normalize(response, schema.arrayOfBundles),
