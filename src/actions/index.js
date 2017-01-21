@@ -21,19 +21,16 @@ export const login = (email, password) => (dispatch, getState) => {
         type: 'LOGIN_SUCCESS',
         user: response,
       });
-      localStorage.setItem('token', JSON.stringify(response.token));
-      // if(response.role === 'admin'){
-      //   browserHistory.push('/bundles');
-      // }
-      browserHistory.push('/bundles');
-      return response;
+      localStorage.setItem('token', response.token);
+      if(response.role === 'admin'){
+        browserHistory.push('/bundles');
+      }
     },
     err => {
       dispatch({
         type: 'LOGIN_FAILURE',
         message: err.message || 'something went wrong with log in',
       });
-      return err;
     }
   );
 };
@@ -56,7 +53,6 @@ export const fetchBundles = () => (dispatch, getState) => {
 
   return api.fetchBundles().then(
     response => {
-      console.log(response);
       dispatch({
         type: 'FETCH_BUNDLES_SUCCESS',
         response: normalize(response, schema.arrayOfBundles),
