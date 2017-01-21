@@ -1,8 +1,7 @@
 import { normalize } from 'normalizr';
 import { browserHistory } from 'react-router';
 import * as schema from './schema';
-import * as api from '../api/bundles';
-import * as apiLogin from '../api/session';
+import * as api from '../api';
 
 export const setSearch = search => ({
   type: 'SET_SEARCH',
@@ -15,7 +14,7 @@ export const login = (email, password) => (dispatch, getState) => {
     email,
   });
 
-  return apiLogin.login(email, password).then(
+  return api.login(email, password).then(
     response => {
       dispatch({
         type: 'LOGIN_SUCCESS',
