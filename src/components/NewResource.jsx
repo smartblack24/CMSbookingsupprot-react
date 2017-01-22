@@ -39,21 +39,30 @@ class NewBundle extends React.Component {
   }
 
   render() {
+    const { resource } = this.props;
+    let Form = undefined;
+    switch (resource) {
+      case 'bundle':
+         Form = <BundleForm closeModal={  this.closeModal } />;
+        break;
+      default:
+        Form = <BundleForm closeModal={  this.closeModal } />
+    }
     return (
       <div>
         <button
           className="btn btn-success"
           onClick={this.openModal}
         >
-          new bundle
+        {`new ${resource}`}
         </button>
         <Modal
-          contentLabel={'New Bundle'}
+          contentLabel={`New ${resource}`}
           style={customStyles}
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
         >
-          <BundleForm closeModal={  this.closeModal } />
+          { Form }
         </Modal>
       </div>
     );

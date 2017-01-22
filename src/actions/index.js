@@ -66,3 +66,11 @@ export const fetchBundles = () => (dispatch, getState) => {
     }
   );
 };
+
+export const logout = () => (dispatch, getState) =>{
+  localStorage.removeItem('token');
+  dispatch({
+    type:'USER_LOGOUT',
+  })
+
+}

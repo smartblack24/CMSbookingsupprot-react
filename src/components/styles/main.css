@@ -43,7 +43,7 @@ th, td {
 }
 
 /*==============================================
-            BUNDLES  HEADER
+            HEADER
 ================================================*/
 
 .breadcrumbs a{
@@ -56,6 +56,10 @@ th, td {
   text-align: center;
 }
 
+.header .logout{
+  font-size: 16px;
+  float: right;
+}
 /* ------ search filter ------- */
 
 .search-container{

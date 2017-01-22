@@ -7,6 +7,7 @@ const user = (state = null, action) => {
         role: action.user.role,
       };
     case 'LOGIN_FAILURE':
+    case 'USER_LOGOUT':
       return null;
     default:
       return state;
