@@ -1,11 +1,16 @@
 import React from 'react';
+import TableHeader from '../components/TableHeader';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import TableContent from '../components/TableContent';
 import { getFilteredBundles } from '../reducers';
 import * as actions from '../actions';
 
-class TableBody extends React.Component{
+
+const titlesE = ['Name', 'Type', 'Country',
+ 'Language', 'Licenses', 'Description'];
+
+class BundleTable extends React.Component {
   componentDidMount() {
     const token = localStorage.getItem('token');
     if(!token){
@@ -20,7 +25,14 @@ class TableBody extends React.Component{
   }
 
   render() {
-    return (<TableContent {...this.props} />);
+    return (
+      <div className="table-responsive container-fluid">
+        <table className="table">
+          <TableHeader titles={titlesE} />
+          <TableContent bundles={this.props.bundles} />
+        </table>
+      </div>
+    );
   }
 }
 
@@ -29,9 +41,9 @@ const mapStateToProps = state => ({
 });
 
 
-TableBody = connect(
+BundleTable = connect(
   mapStateToProps,
   actions
-)(TableBody);
+)(BundleTable);
 
-export default TableBody;
+export default BundleTable;

@@ -1,11 +1,11 @@
 import React from 'react';
-import Table from './Table';
+import BundleTable from '../containers/BundleTable';
 import Header from './Header';
 
 const Bundles = () => (
   <div>
     <Header />
-    <Table />
+    <BundleTable />
   </div>
 );
 
