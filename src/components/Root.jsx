@@ -10,7 +10,8 @@ const Root = ({ store }) => (
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute  component={LoginContainer} />
-        <Route path="bundles" component={Bundles} />
+        <Route path="/bundles" component={Bundles} />
+        <Route path="/bundles/(:bundleId)" component={Bundles} />
       </Route>
     </Router>
   </Provider>

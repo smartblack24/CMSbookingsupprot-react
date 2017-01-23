@@ -7,12 +7,20 @@ import SearchFilter from '../containers/SearchFilter';
 
 class Header extends React.Component {
   render() {
-    const { location, logout} = this.props;
+    const { location, logout, params} = this.props;
     let newResource = "";
     let breadcrumbs = <Link to="bundles">Bundles</Link>;
     if(location.pathname === '/bundles' ||
       location.pathname === 'bundles') {
        newResource = <NewResource resource={'bundle'}/>;
+    }
+
+    if(params.bundleId){
+       breadcrumbs = <div>
+            <Link to="bundles">Bundles</Link>
+            {" > "}
+            <Link to={`/bundles/${params.bundleId}`}>{params.bundleId}</Link>
+          </div>;
     }
     return (
       <div className="container-fluid header">
