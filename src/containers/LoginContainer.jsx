@@ -5,6 +5,8 @@ import Login from '../components/Login';
 import AlertContainer from 'react-alert';
 import icon from '../images/material_error.png';
 
+import { fetchLicenses } from '../api/licenses';
+
 class LoginContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +17,11 @@ class LoginContainer extends React.Component {
       time: 6000,
       transition: 'scale'
     };
+  }
+
+  //test
+  componentDidMount() {
+    fetchLicenses('5877b2cfc1ccca200e08c240').then(res => console.log(res));
   }
 
   showAlert() {
