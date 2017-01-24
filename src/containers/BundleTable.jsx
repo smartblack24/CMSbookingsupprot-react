@@ -2,7 +2,7 @@ import React from 'react';
 import TableHeader from '../components/TableHeader';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
-import TableContent from '../components/TableContent';
+import BundleTBody from '../components/BundleTBody';
 import { getFilteredBundles } from '../reducers';
 import * as actions from '../actions';
 
@@ -29,7 +29,7 @@ class BundleTable extends React.Component {
       <div className="table-responsive container-fluid">
         <table className="table">
           <TableHeader titles={titlesE} />
-          <TableContent bundles={this.props.bundles} />
+          <BundleTBody bundles={this.props.bundles} />
         </table>
       </div>
     );
