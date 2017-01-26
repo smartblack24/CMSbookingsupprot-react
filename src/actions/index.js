@@ -67,6 +67,28 @@ export const fetchBundles = () => (dispatch, getState) => {
   );
 };
 
+export const fetchLicenses = bundleId => (dispatch, getState) => {
+  dispatch({
+    type: 'FETCH_LICENSES_REQUEST',
+  });
+
+  return api.fetchLicenses(bundleId).then(
+    response => {
+      dispatch({
+        type: 'FETCH_LICENSES_SUCCESS',
+        response: normalize(response, schema.arrayOfLicenses),
+      })
+    }
+  ).catch(
+    error => {
+      dispatch({
+        type: 'FETCH_LICENSES_FAILURE',
+        message: error.message || 'something went wrong with server',
+      });
+    }
+  );
+}
+
 export const logout = () => (dispatch, getState) =>{
   localStorage.removeItem('token');
   dispatch({

@@ -12,5 +12,8 @@ export const fetchLicenses = (bundleId) => {
   const jwt = getJwt();
   return fetch(LicensesURL, {
     headers: {'Authorization': jwt }
-  }).then(res => res.json());
+  }).then(
+    res => res.json().then(
+    res => res.docs
+  ));
 }
