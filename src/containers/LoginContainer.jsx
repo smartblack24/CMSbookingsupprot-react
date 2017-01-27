@@ -5,8 +5,6 @@ import Login from '../components/Login';
 import AlertContainer from 'react-alert';
 import icon from '../images/material_error.png';
 
-import * as actions from '../actions';
-
 class LoginContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -17,11 +15,6 @@ class LoginContainer extends React.Component {
       time: 6000,
       transition: 'scale'
     };
-  }
-
-  //test
-  componentDidMount() {
-    this.props.fetchLicenses('5877b2cfc1ccca200e08c240').then(res => console.log(res));
   }
 
   showAlert() {
@@ -53,6 +46,6 @@ const mapStateToProps = state => ({
   errors: getErrors(state),
 });
 
-LoginContainer = connect(mapStateToProps, actions)(LoginContainer);
+LoginContainer = connect(mapStateToProps)(LoginContainer);
 
 export default LoginContainer;
