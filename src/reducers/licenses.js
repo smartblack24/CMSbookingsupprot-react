@@ -29,5 +29,18 @@ const licenses = combineReducers({
 export default licenses;
 
 export const getLicenses = state => {
-  return state.allIds.map(i => state.byId[i]);
+  return state.allIds.map(i => {
+    const license = {...state.byId[i]};
+    license['slots'] = `${license['used_slots']}/${license['total_slots']}`;
+    return license;
+  })
+}
+
+export const getFilteredLicenses = (state, match) => {
+  const licenses = getLicenses(state);
+  return licenses.filter(license => {
+    const regex = new RegExp(match, 'gi');
+    return license.holder.match(regex) || license.edu_contact.match(regex) ||
+      license.book_code.match(regex);
+  });
 }

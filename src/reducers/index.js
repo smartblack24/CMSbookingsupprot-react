@@ -18,8 +18,8 @@ export default bookApp;
 export const getFilteredBundles = state =>
   fromBundles.getFilteredBundles(state.bundles, state.searchFilter);
 
-export const getLicenses = state =>
-  fromLicenses.getLicenses(state.licenses);
+export const getFilteredLicenses = state =>
+  fromLicenses.getFilteredLicenses(state.licenses, state.searchFilter);
 
 export const getUser = state =>
   fromUser.getUser(state.user);

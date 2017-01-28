@@ -31,7 +31,7 @@ export default bundles;
 
 const getBundles = (state) => {
   return state.allIds.map(id => {
-    const bundle = Object.assign({},state.byId[id]);
+    const bundle = {...state.byId[id]};
     bundle['licenses'] = `${bundle['used_licenses']}/${bundle['total_licenses']}`;
     return bundle;
   });
@@ -41,6 +41,8 @@ export const getFilteredBundles = (state, match) => {
   const bundles = getBundles(state);
   return  bundles.filter((bundle) => {
       const regex = new RegExp(match, 'gi');
+      //bug hotfix
+      return true;
       if (bundle.country === undefined){
         return bundle.name.match(regex) || bundle.bundle_type.match(regex);
       }
