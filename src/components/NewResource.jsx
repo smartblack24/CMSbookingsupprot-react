@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import BundleForm from './BundleForm';
+import LicenseForm from '../containers/LicenseForm';
 
 const customStyles = {
   content: {
@@ -44,6 +45,9 @@ class NewBundle extends React.Component {
     switch (resource) {
       case 'bundle':
          Form = <BundleForm closeModal={  this.closeModal } />;
+        break;
+      case 'license':
+        Form = <LicenseForm closeModal={  this.closeModal } />;
         break;
       default:
         Form = <BundleForm closeModal={  this.closeModal } />

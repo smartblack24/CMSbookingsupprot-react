@@ -13,7 +13,10 @@ class Header extends React.Component {
     if(location.pathname === '/bundles' ||
       location.pathname === 'bundles') {
        newResource = <NewResource resource={'bundle'}/>;
+    } else if (params.bundleId) {
+      newResource = <NewResource resource={'license'}/>;
     }
+
 
     if(params.bundleId){
        breadcrumbs = <div>

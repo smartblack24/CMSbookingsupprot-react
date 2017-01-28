@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory, withRouter } from 'react-router';
-import { getLicenses } from '../reducers'
+import { getFilteredLicenses } from '../reducers'
 import TableHeader from '../components/TableHeader';
 import LicensesTBody from '../components/LicensesTBody';
 import * as actions from '../actions';
@@ -36,7 +36,7 @@ class LicensesTable extends React.Component {
 
 const mapStoreToProps = (state, { params }) => {
    return {
-     licenses: getLicenses(state),
+     licenses: getFilteredLicenses(state),
      params,
    }
 };

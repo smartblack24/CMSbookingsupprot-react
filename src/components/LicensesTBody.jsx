@@ -3,7 +3,7 @@ import React from 'react';
 const valuesOrder = bundle => {
   const values = [];
   values.push(bundle['holder']);
-  values.push(bundle['total_slots']);
+  values.push(bundle['slots']);
   values.push(bundle['exp_date']);
   values.push(bundle['book_code']);
   values.push(bundle['edu_contact']);
