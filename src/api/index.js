@@ -13,3 +13,7 @@ export const addBundle = bundle =>
 
 export const fetchLicenses = bundleId =>
   fromLicenses.fetchLicenses(bundleId);
+
+export const addLicense = license =>
+  fromLicenses.addLicense(license);
+  
