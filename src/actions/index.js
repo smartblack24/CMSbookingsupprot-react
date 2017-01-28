@@ -45,6 +45,16 @@ export const addBundle = bundle =>  (dispatch, getState) => {
   );
 };
 
+export const addLicense = license => (dispatch, getState) =>
+  api.addLicense(license).then(
+    response => {
+      dispatch({
+        type: 'ADD_LICENSE',
+        response: normalize(response, schema.license),
+      })
+    }
+  )
+
 export const fetchBundles = () => (dispatch, getState) => {
   dispatch({
     type: 'FETCH_BUNDLES_REQUEST',
