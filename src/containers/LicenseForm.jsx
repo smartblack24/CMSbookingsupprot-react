@@ -65,8 +65,7 @@ class LicenseForm extends React.Component {
            </div>
            <div className="input-group">
              <label htmlFor="book_code">BookCode</label>
-             <Control
-               type="number"
+             <Control.text
                model=".book_code"
                required
                />
