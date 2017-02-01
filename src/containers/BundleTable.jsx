@@ -2,7 +2,7 @@ import React from 'react';
 import TableHeader from '../components/TableHeader';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
-import BundleTBody from '../components/BundleTBody';
+import BundleTBody from '../components/bundle/BundleTBody';
 import { getFilteredBundles } from '../reducers';
 import * as actions from '../actions';
 

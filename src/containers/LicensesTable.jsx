@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { browserHistory, withRouter } from 'react-router';
 import { getFilteredLicenses } from '../reducers'
 import TableHeader from '../components/TableHeader';
-import LicensesTBody from '../components/LicensesTBody';
+import LicensesTBody from '../components/license/LicensesTBody';
 import * as actions from '../actions';
 
 const titlesE = ['Holder', 'Avaible Slots', 'Exp Date',

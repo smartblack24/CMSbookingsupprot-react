@@ -41,8 +41,6 @@ export const getFilteredBundles = (state, match) => {
   const bundles = getBundles(state);
   return  bundles.filter((bundle) => {
       const regex = new RegExp(match, 'gi');
-      //bug hotfix
-      return true;
       if (bundle.country === undefined){
         return bundle.name.match(regex) || bundle.bundle_type.match(regex);
       }

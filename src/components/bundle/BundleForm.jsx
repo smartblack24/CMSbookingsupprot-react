@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { LocalForm, Control } from 'react-redux-form';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 /*eslint-disable no-unused-vars */
 

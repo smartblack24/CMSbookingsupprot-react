@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import BundleForm from './BundleForm';
+import BundleForm from './bundle/BundleForm';
 import LicenseForm from '../containers/LicenseForm';
 
 const customStyles = {

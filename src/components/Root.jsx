@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
-import Bundles from './Bundles';
-import Licenses from './Licenses';
+import Bundles from './bundle/Bundles';
+import Licenses from './license/Licenses';
 import LoginContainer from '../containers/LoginContainer';
 import App from './App';
 
