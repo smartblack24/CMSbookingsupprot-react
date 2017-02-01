@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import RaisedButton from 'material-ui/RaisedButton';
 import BundleForm from './bundle/BundleForm';
 import LicenseForm from '../containers/LicenseForm';
 
@@ -43,10 +44,10 @@ class NewBundle extends React.Component {
     const { resource } = this.props;
     let Form = undefined;
     switch (resource) {
-      case 'bundle':
+      case 'Bundle':
          Form = <BundleForm closeModal={  this.closeModal } />;
         break;
-      case 'license':
+      case 'License':
         Form = <LicenseForm closeModal={  this.closeModal } />;
         break;
       default:
@@ -54,12 +55,21 @@ class NewBundle extends React.Component {
     }
     return (
       <div>
-        <button
-          className="btn btn-success"
+        <RaisedButton
+          buttonStyle={{
+            backgroundColor: "#00C853",
+          }}
+          className="r-button"
+          labelColor="#fff"
+          primary
           onClick={this.openModal}
+          label={`New ${resource}`}
+          labelStyle={{
+            textTransform: "none",
+          }}
         >
-        {`new ${resource}`}
-        </button>
+
+      </RaisedButton>
         <Modal
           contentLabel={`New ${resource}`}
           style={customStyles}

@@ -1,10 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import Bundles from './bundle/Bundles';
 import Licenses from './license/Licenses';
 import LoginContainer from '../containers/LoginContainer';
 import App from './App';
+
+injectTapEventPlugin();
 
 const Root = ({ store }) => (
   <Provider store={store}>

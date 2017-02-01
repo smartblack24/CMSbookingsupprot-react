@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { LocalForm, Control } from 'react-redux-form';
+import AlertContainer from 'react-alert';
 import * as actions from '../../actions';
 
 /*eslint-disable no-unused-vars */
@@ -10,20 +11,41 @@ const length = (val) => val && val.length > 2;
 
 class BundleForm extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.alertOptions = {
+      offset: 14,
+      position: 'top left',
+      theme: 'dark',
+      time: 2000,
+      transition: 'scale'
+    };
+  }
+
   handleButtonClose() {
       this.props.closeModal();
+  }
+
+  showAlert() {
+    this.msg.show('Bundle created!', {
+      type: 'success',
+    });
   }
 
   handleSubmit(values) {
     const bundle = {...values};
     bundle['total_licenses'] = parseInt(bundle['total_licenses'],10);
     const { addBundle, closeModal } = this.props;
-    addBundle(bundle).then(()=> alert('A bundle was created!'));
-    closeModal();
+
+    addBundle(bundle)
+      .then(() => this.showAlert());
+
    }
+
   render() {
     return (
       <div className="modal-body ">
+        <AlertContainer ref={(a) => this.msg = a} {...this.alertOptions} />
         <div className="title">
           New Bundle
         </div>

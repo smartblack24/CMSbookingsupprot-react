@@ -1,5 +1,6 @@
 body{
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
+  font-family: 'Roboto', sans-serif;
 }
 
 .margin-bottom{
@@ -25,13 +26,13 @@ th, td {
 }
 
 .table > thead > tr > th{
-  background: steelblue;
+  background: #3F51B5;
   height: 54px;
   font-weight: lighter;
-  text-shadow: 0 1px 0 #38678f;
+  text-shadow: 0 1px 0 #3F51B5;
   color: white;
-  border: 1px solid #38678f;
-  box-shadow: inset 0px 1px 2px #568ebd;
+  border: 1px solid #3F51B5;
+  box-shadow: inset 0px 1px 2px #3F51B5;
   transition: all 0.2s;
   vertical-align: middle;
 }
@@ -45,6 +46,14 @@ th, td {
 /*==============================================
             HEADER
 ================================================*/
+.app-bar a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.app-bar a:hover{
+  color: #ddd;
+}
 
 .breadcrumbs a{
   font-size: 30px;
@@ -52,15 +61,21 @@ th, td {
 }
 
 .header {
-  padding: 30px 10px;
   text-align: center;
 }
 
 .header .logout{
   font-size: 16px;
   float: right;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.header-section-2{
+  margin-top: 16px;
 }
 /* ------ search filter ------- */
+
 
 .search-container{
  position: relative;
@@ -89,7 +104,7 @@ th, td {
 
 /* ------ new bundle btn ------- */
 
-.new-bundle-container .btn{
+.new-bundle-container .r-button{
   float: left;
   margin-top: 28px;
   margin-left: 20px;
