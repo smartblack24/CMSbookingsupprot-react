@@ -13,7 +13,7 @@ class LicensesTable extends React.Component {
   componentDidMount() {
     const token = localStorage.getItem('token');
     if(!token){
-      browserHistory.push('/');
+      browserHistory.push('/login');
     }
     this.fetchData();
   }

@@ -29,7 +29,7 @@ class Header extends React.Component {
     const logoutIcon = <Link
                           className="logout"
                           onClick={logout}
-                          to="/">
+                          to="/login">
                             Logout
                         </Link>
     return (
