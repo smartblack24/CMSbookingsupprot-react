@@ -92,6 +92,14 @@ class LicenseForm extends React.Component {
                required
              />
            </div>
+           <div className="input-group last-input-group">
+             <label htmlFor="exp_data">Expiration Date</label>
+             <Control
+               type="date"
+               model=".exp_data"
+               required
+             />
+           </div>
            <div className="text-center">
              <button className="button" type="submit">
                Create
