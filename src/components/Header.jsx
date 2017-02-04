@@ -1,12 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router';
+import { Link, withRouter, browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import * as actions from '../actions';
 import NewResource from '../components/NewResource';
 import SearchFilter from '../containers/SearchFilter';
 
 class Header extends React.Component {
+  componentDidMount() {
+    if(!localStorage.getItem('token'))
+      browserHistory.push('/login');
+  }
   render() {
     const { location, logout, params} = this.props;
     let newResource = "";
