@@ -16,6 +16,7 @@ class Header extends React.Component {
   render() {
     const { location, logout, params} = this.props;
     let newResource = "";
+    let search = <SearchFilter />
     let breadcrumbs = <Link to="/bundles">Bundles</Link>;
     if(location.pathname === '/bundles' ||
       location.pathname === 'bundles') {
@@ -23,6 +24,12 @@ class Header extends React.Component {
     } else if (params.bundleId) {
       newResource = <NewResource resource={'License'}/>;
     }
+
+    if(location.pathname === '/settings' ||
+      location.pathname === 'settings'){
+        search = '';
+        breadcrumbs = <Link to="/settings">Settings</Link>;
+      }
 
 
     if(params.bundleId){
@@ -56,7 +63,7 @@ class Header extends React.Component {
              {newResource}
            </div>
            <div className="col-xs-6">
-             <SearchFilter />
+             {search}
            </div>
          </div>
       </div>

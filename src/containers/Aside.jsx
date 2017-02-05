@@ -17,13 +17,17 @@ let Aside = ({ toggleAside, asideStatus }) => (
       Bundles
     </MenuItem>
     <MenuItem
-      onTouchTap={() => browserHistory.push('/bundles')}
+      onTouchTap={() => {
+        browserHistory.push('/settings');
+        toggleAside();
+      }}
       >
       Settings
     </MenuItem>
     <MenuItem
       onClick={toggleAside}
-      >Exit</MenuItem>
+      >Exit
+    </MenuItem>
   </Drawer>
 );
 

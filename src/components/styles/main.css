@@ -260,3 +260,21 @@ input[type="text"], input[type="email"], input[type="date"],
 .react-alerts .error .icon > img {
   width: 100%;
 }
+
+/*==============================================
+          SETTINGS
+================================================*/
+
+.settings {
+  margin: 114px 40px 0;
+}
+
+
+.serials-form{
+  margin: 0 40px;
+  padding: 16px 0;
+}
+
+.settings .form-submit{
+  margin-top: 20px;
+}
