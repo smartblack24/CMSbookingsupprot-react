@@ -4,6 +4,7 @@ import licenses, * as fromLicenses from './licenses';
 import searchFilter from './searchFilter';
 import user, * as fromUser from './user';
 import errors, * as fromErrors from './errors';
+import aside, * as fromAside from './aside';
 
 const bookApp = combineReducers({
   bundles,
@@ -11,6 +12,7 @@ const bookApp = combineReducers({
   searchFilter,
   user,
   errors,
+  aside,
 });
 
 export default bookApp;
@@ -26,3 +28,6 @@ export const getUser = state =>
 
 export const getErrors = state =>
   fromErrors.getErrors(state.errors);
+
+export const getAside = state =>
+  fromAside.getAside(state.aside);

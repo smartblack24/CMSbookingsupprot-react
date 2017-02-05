@@ -8,6 +8,10 @@ export const setSearch = search => ({
   searchFilter: search,
 });
 
+export const toggleAside = () => ({
+  type: 'TOGGLE_ASIDE',
+})
+
 export const login = (email, password) => (dispatch, getState) => {
   dispatch({
     type: 'REQUEST_LOGIN',

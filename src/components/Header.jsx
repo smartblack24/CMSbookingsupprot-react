@@ -2,11 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter, browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
+import Aside from '../containers/Aside.jsx'
 import * as actions from '../actions';
 import NewResource from '../components/NewResource';
 import SearchFilter from '../containers/SearchFilter';
 
 class Header extends React.Component {
+
   componentDidMount() {
     if(!localStorage.getItem('token'))
       browserHistory.push('/login');
@@ -38,6 +40,7 @@ class Header extends React.Component {
                         </Link>
     return (
       <div className="header">
+        <Aside/>
         <AppBar
            style={{
              backgroundColor: "#3F51B5",
@@ -46,7 +49,7 @@ class Header extends React.Component {
            className="app-bar"
            title={breadcrumbs}
            iconElementRight={logoutIcon}
-           iconClassNameRight="logout"
+           onLeftIconButtonTouchTap={() => this.props.toggleAside()}
            />
          <div className="header-section-2">
            <div className="col-xs-6 new-bundle-container">
