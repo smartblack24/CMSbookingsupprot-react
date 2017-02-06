@@ -6,8 +6,8 @@ import TableHeader from '../components/TableHeader';
 import LicensesTBody from '../components/license/LicensesTBody';
 import * as actions from '../actions';
 
-const titlesE = ['Holder', 'Avaible Slots', 'Exp Date',
- 'BookCode', 'Edu Contact', 'Admin Contact'];
+const titlesE = ['Holder', 'Available Slots', 'Exp. Date',
+ 'BookCode', 'Edu. Contact', 'Admin. Contact'];
 
 class LicensesTable extends React.Component {
   componentDidMount() {

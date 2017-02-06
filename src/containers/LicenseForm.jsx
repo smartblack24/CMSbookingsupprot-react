@@ -24,6 +24,15 @@ class LicenseForm extends React.Component {
     });
   }
 
+  handleUpdate(form) {
+    if(form.total_slots === undefined)
+      return;
+    const total_slots = parseInt(form.total_slots.value,10);
+    if(!form.total_slots.valid && total_slots < 1){
+      alert('slots should be positive.')
+    }
+
+  }
   handleButtonClose() {
       this.props.closeModal();
   }
@@ -55,6 +64,7 @@ class LicenseForm extends React.Component {
          </div>
          <LocalForm
            onSubmit={(values) => this.handleSubmit(values)}
+           onUpdate={(form) => this.handleUpdate(form)}
          >
            <div className="input-group">
              <label htmlFor="holder">Holder</label>
@@ -89,6 +99,9 @@ class LicenseForm extends React.Component {
              <Control
                type="number"
                model=".total_slots"
+               validators={{
+                   positive: (val) => val > 0 ,
+                 }}
                required
              />
            </div>
