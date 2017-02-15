@@ -32,6 +32,7 @@ export const getLicenses = state => {
   return state.allIds.map(i => {
     const license = {...state.byId[i]};
     license['slots'] = `${license['used_slots']}/${license['total_slots']}`;
+    license['exp_date'] = license['exp_date'].split('T').shift();
     return license;
   })
 }
