@@ -24,26 +24,18 @@ class LicenseForm extends React.Component {
     });
   }
 
-  handleUpdate(form) {
-    if(form.total_slots === undefined)
-      return;
-    const total_slots = parseInt(form.total_slots.value,10);
-    if(!form.total_slots.valid && total_slots < 1){
-      alert('slots should be positive.')
-    }
-
-  }
   handleButtonClose() {
       this.props.closeModal();
   }
 
   handleSubmit(values) {
-    const { addLicense, params } = this.props;
-    const license = {...values};
-    license['total_slots'] = parseInt(license['total_slots'],10);
-    license['bundle'] = params.bundleId;
-    addLicense(license)
-      .then(() => this.showAlert());
+    // const { addLicense, params } = this.props;
+    // const license = {...values};
+    // license['total_slots'] = parseInt(license['total_slots'],10);
+    // license['bundle'] = params.bundleId;
+    // addLicense(license)
+    //   .then(() => this.showAlert());
+    this.props.closeModal();
    }
 
    render() {
@@ -64,54 +56,14 @@ class LicenseForm extends React.Component {
          </div>
          <LocalForm
            onSubmit={(values) => this.handleSubmit(values)}
-           onUpdate={(form) => this.handleUpdate(form)}
          >
            <div className="input-group">
-             <label htmlFor="holder">Holder</label>
-             <Control.text
-                model=".holder"
-                required
-              />
-           </div>
-           <div className="input-group">
-             <label htmlFor="book_code">BookCode</label>
-             <Control.text
-               model=".book_code"
-               required
-               />
-           </div>
-           <div className="input-group">
-             <label htmlFor="edu_contact">Edu Contact</label>
-             <Control.text
-               model=".edu_contact"
-               required
-             />
-           </div>
-           <div className="input-group">
-             <label htmlFor="country">Admin Contact</label>
-             <Control.text
-               model=".adm_contact"
-               required
-             />
-           </div>
-           <div className="input-group last-input-group">
-             <label htmlFor="total_slots">Slots</label>
+             <label htmlFor="licenses">How many licenses ?</label>
              <Control
                type="number"
-               model=".total_slots"
-               validators={{
-                   positive: (val) => val > 0 ,
-                 }}
-               required
-             />
-           </div>
-           <div className="input-group last-input-group">
-             <label htmlFor="exp_data">Expiration Date</label>
-             <Control
-               type="date"
-               model=".exp_data"
-               required
-             />
+                model=".licenses"
+                required
+              />
            </div>
            <div className="text-center">
              <button className="button" type="submit">
