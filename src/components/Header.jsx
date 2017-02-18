@@ -6,6 +6,7 @@ import Aside from '../containers/Aside.jsx'
 import * as actions from '../actions';
 import NewResource from '../components/NewResource';
 import SearchFilter from '../containers/SearchFilter';
+import { getDetail } from '../reducers';
 
 class Header extends React.Component {
 
@@ -13,8 +14,9 @@ class Header extends React.Component {
     if(!localStorage.getItem('token'))
       browserHistory.push('/login');
   }
+
   render() {
-    const { location, logout, params} = this.props;
+    const { location, logout, params, bundle } = this.props;
     let newResource = "";
     let search = <SearchFilter />
     let breadcrumbs = <Link to="/bundles">Bundles</Link>;
@@ -36,7 +38,7 @@ class Header extends React.Component {
        breadcrumbs = <div>
             <Link to="/bundles">Bundles</Link>
             {" > "}
-            <Link to={`/bundles/${params.bundleId}`}>{params.bundleId}</Link>
+            <Link to={`/bundles/${params.bundleId}`}>{bundle.name}</Link>
           </div>;
     }
     const logoutIcon = <Link
@@ -74,6 +76,7 @@ class Header extends React.Component {
 const mapStoreToProps = (state, { params }) => {
    return {
      params,
+     bundle: getDetail(state),
    }
 };
 

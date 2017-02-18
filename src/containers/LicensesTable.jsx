@@ -19,8 +19,9 @@ class LicensesTable extends React.Component {
   }
 
   fetchData() {
-    const { params, fetchLicenses } = this.props;
+    const { params, fetchLicenses, getBundle } = this.props;
     fetchLicenses(params.bundleId);
+    getBundle(params.bundleId);
   }
   render(){
     return (
