@@ -16,4 +16,7 @@ export const fetchLicenses = bundleId =>
 
 export const addLicense = license =>
   fromLicenses.addLicense(license);
+
+export const getBundle = id =>
+  fromBundles.getBundle(id);
   

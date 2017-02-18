@@ -12,7 +12,7 @@ export const fetchBundles = () => {
   return fetch(URL, {
     headers: {'Authorization': jwt }
   }).then(res => res.json());
-}
+};
 
 export const addBundle = (bundle) => {
   const encodedParams = Object.keys(bundle).map((key) => {
@@ -29,4 +29,11 @@ export const addBundle = (bundle) => {
         },
         body:encodedParams
     }).then(res => res.json());
-}
+};
+
+export const getBundle = id => {
+  const jwt = getJwt();
+  return fetch(`${URL}/${id}`, {
+    headers: {'Authorization': jwt }
+  }).then(res => res.json());
+};
