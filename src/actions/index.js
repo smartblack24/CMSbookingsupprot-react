@@ -103,6 +103,21 @@ export const fetchLicenses = bundleId => (dispatch, getState) => {
   );
 }
 
+export const getBundle = bundleId => (dispatch, getState) => {
+  dispatch({
+    type: 'FETCH_BUNDLE_REQUEST',
+  });
+
+  return api.getBundle(bundleId).then(
+    response => {
+      dispatch({
+        type: 'FETCH_BUNDLE_SUCCESS',
+        bundle: response,
+      })
+    }
+  );
+}
+
 export const logout = () => (dispatch, getState) =>{
   localStorage.removeItem('token');
   dispatch({
