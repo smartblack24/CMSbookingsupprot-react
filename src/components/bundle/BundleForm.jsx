@@ -6,8 +6,7 @@ import * as actions from '../../actions';
 
 /*eslint-disable no-unused-vars */
 
-const required = (val) => val && val.length > 0;
-const length = (val) => val && val.length > 2;
+const positive = val => val && val >= 0;
 
 class BundleForm extends React.Component {
 
@@ -34,7 +33,17 @@ class BundleForm extends React.Component {
 
   handleSubmit(values) {
     const bundle = {...values};
-    bundle['total_licenses'] = parseInt(bundle['total_licenses'],10);
+    bundle.distribution = [];
+    for (const property in bundle.licenses) {
+      if (bundle.licenses.hasOwnProperty(property)) {
+        bundle.distribution.push({
+           genre: property,
+           licenses: parseInt(bundle.licenses[property], 10),
+         });
+      }
+    }
+    delete bundle.licenses;
+    console.log('bundle', bundle);
     const { addBundle, closeModal } = this.props;
 
     addBundle(bundle)
@@ -69,24 +78,6 @@ class BundleForm extends React.Component {
              />
           </div>
           <div className="input-group">
-            <label htmlFor="bundle_type">Bundle Type</label>
-              <Control.select
-                 defaultValue="Full"
-                 model=".bundle_type"
-                 className="styled-select slate">
-                <option value="Full">Full</option>
-                <option value="Custom">Custom</option>
-              </Control.select>
-          </div>
-          <div className="input-group">
-            <label htmlFor="licenses">Licenses</label>
-            <Control
-              type="number"
-              model=".total_licenses"
-              required
-              />
-          </div>
-          <div className="input-group">
             <label htmlFor="country">Country</label>
             <Control.text
               model=".country"
@@ -106,6 +97,79 @@ class BundleForm extends React.Component {
               model=".description"
               required
             />
+          </div>
+          <div className="input-group">
+            <label htmlFor="bundle_type">Bundle Type</label>
+              <Control.select
+                 defaultValue="Full"
+                 model=".bundle_type"
+                 className="styled-select slate">
+                <option value="Full">Full</option>
+                <option value="Custom">Custom</option>
+              </Control.select>
+          </div>
+          <div className="description">
+            Number of licenses
+          </div>
+          <div className="input-group">
+            <label htmlFor="licenses">Sea</label>
+            <Control
+              type="number"
+              min="0"
+              model=".licenses.sea"
+              required
+              validators={{ positive }}
+              />
+          </div>
+          <div className="input-group">
+            <label htmlFor="licenses">Jungle</label>
+            <Control
+              type="number"
+              min="0"
+              model=".licenses.jun"
+              required
+              validators={{ positive }}
+              />
+          </div>
+          <div className="input-group">
+            <label htmlFor="licenses">Savannah</label>
+            <Control
+              type="number"
+              min="0"
+              model=".licenses.sav"
+              required
+              validators={{ positive }}
+              />
+          </div>
+          <div className="input-group">
+            <label htmlFor="licenses">Farm</label>
+            <Control
+              type="number"
+              min="0"
+              model=".licenses.far"
+              required
+              validators={{ positive }}
+              />
+          </div>
+          <div className="input-group">
+            <label htmlFor="licenses">Forest</label>
+            <Control
+              type="number"
+              min="0"
+              model=".licenses.for"
+              required
+              validators={{ positive }}
+              />
+          </div>
+          <div className="input-group">
+            <label htmlFor="licenses">Dinosours</label>
+            <Control
+              type="number"
+              min="0"
+              model=".licenses.din"
+              required
+              validators={{ positive }}
+              />
           </div>
           <div className="text-center">
             <button className="button" type="submit">

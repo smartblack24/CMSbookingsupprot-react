@@ -5,6 +5,8 @@ import { LocalForm, Control } from 'react-redux-form';
 import AlertContainer from 'react-alert';
 import * as actions from '../actions';
 
+const positive = val => val && val >= 0;
+
 class LicenseForm extends React.Component {
 
   constructor(props) {
@@ -45,9 +47,6 @@ class LicenseForm extends React.Component {
          <div className="title">
            New License
          </div>
-         <div className="description">
-           License content
-         </div>
          <div
            className="close-modal"
            onClick={ () => this.handleButtonClose()}
@@ -57,14 +56,69 @@ class LicenseForm extends React.Component {
          <LocalForm
            onSubmit={(values) => this.handleSubmit(values)}
          >
-           <div className="input-group">
-             <label htmlFor="licenses">How many licenses ?</label>
-             <Control
-               type="number"
-                model=".licenses"
-                required
-              />
-           </div>
+         <div className="description">
+           Number of licenses
+         </div>
+         <div className="input-group">
+           <label htmlFor="licenses">Sea</label>
+           <Control
+             type="number"
+             min="0"
+             model=".licenses.sea"
+             required
+             validators={{ positive }}
+             />
+         </div>
+         <div className="input-group">
+           <label htmlFor="licenses">Jungle</label>
+           <Control
+             type="number"
+             min="0"
+             model=".licenses.jun"
+             required
+             validators={{ positive }}
+             />
+         </div>
+         <div className="input-group">
+           <label htmlFor="licenses">Savannah</label>
+           <Control
+             type="number"
+             min="0"
+             model=".licenses.sav"
+             required
+             validators={{ positive }}
+             />
+         </div>
+         <div className="input-group">
+           <label htmlFor="licenses">Farm</label>
+           <Control
+             type="number"
+             min="0"
+             model=".licenses.far"
+             required
+             validators={{ positive }}
+             />
+         </div>
+         <div className="input-group">
+           <label htmlFor="licenses">Forest</label>
+           <Control
+             type="number"
+             min="0"
+             model=".licenses.for"
+             required
+             validators={{ positive }}
+             />
+         </div>
+         <div className="input-group">
+           <label htmlFor="licenses">Dinosours</label>
+           <Control
+             type="number"
+             min="0"
+             model=".licenses.din"
+             required
+             validators={{ positive }}
+             />
+         </div>
            <div className="text-center">
              <button className="button" type="submit">
                Create

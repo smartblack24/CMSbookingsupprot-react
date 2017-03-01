@@ -9,14 +9,16 @@ const customStyles = {
     width: '60%',
     minWidth: '380px',
     maxWidth: '600px',
+    height: '94%',
     top: '50%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
-    padding: '4px 20px 8px',
+    padding: '10px 20px 14px',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     boxShadow: '0px 50px 30px -30px rgba(0,0,0,0.3)',
+    overflowY:'scroll'
   },
 };
 
