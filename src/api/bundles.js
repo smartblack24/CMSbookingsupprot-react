@@ -16,9 +16,22 @@ export const fetchBundles = () => {
 
 export const addBundle = (bundle) => {
   const encodedParams = Object.keys(bundle).map((key) => {
+    // if(key === 'distribution') {
+    //   return '';
+    // }
     return encodeURIComponent(key) + '=' + encodeURIComponent(bundle[key]);
   }).join('&');
-
+//   const parts = [];
+//   bundle['distribution'].forEach(dist => {
+//     parts.push(encodeURIComponent(dist.genre) + '=' +
+//                encodeURIComponent(dist.value));
+//   });
+// for ( var i = 0; i < array.length; ++i )
+//   parts.push(encodeURIComponent(array[i].name) + '=' +
+//              encodeURIComponent(array[i].value));
+//
+// var url = parts.join('&');
+  console.log(encodedParams);
   const jwt = getJwt();
 
   return fetch(URL, {
