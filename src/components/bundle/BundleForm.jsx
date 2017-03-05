@@ -47,7 +47,7 @@ class BundleForm extends React.Component {
 
     addBundle(bundle)
       .then(() => this.showAlert());
-
+    closeModal();
    }
 
   render() {
