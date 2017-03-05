@@ -43,11 +43,11 @@ class BundleForm extends React.Component {
       }
     }
     delete bundle.licenses;
-    const { addBundle, closeModal } = this.props;
+    const { addBundle } = this.props;
 
     addBundle(bundle)
       .then(() => this.showAlert());
-    closeModal();
+    this.props.closeModal();
    }
 
   render() {
