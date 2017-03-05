@@ -19,4 +19,7 @@ export const addLicense = license =>
 
 export const getBundle = id =>
   fromBundles.getBundle(id);
+
+export const editBundle = bundle =>
+  fromBundles.editBundle(bundle);
   

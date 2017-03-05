@@ -39,25 +39,31 @@ export const login = (email, password) => (dispatch, getState) => {
 };
 
 export const addBundle = bundle =>  (dispatch, getState) => {
-  return api.addBundle(bundle).then(
-    response => {
+  return api.addBundle(bundle).then(response => {
       dispatch({
         type: 'ADD_BUNDLE',
-        response: normalize(response, schema.bundle),
+        response: normalize(response.bundle, schema.bundle),
       })
-    }
-  );
+    });
 };
 
+export const editBundle = bundle => (dispatch, getState) => (
+   api.editBundle(bundle)
+    .then(response => {
+      dispatch({
+        type: 'EDIT_BUNDLE',
+        response: normalize(response.bundle, schema.bundle),
+      })
+    })
+);
+
 export const addLicense = license => (dispatch, getState) =>
-  api.addLicense(license).then(
-    response => {
+  api.addLicense(license).then(response => {
       dispatch({
         type: 'ADD_LICENSE',
         response: normalize(response, schema.license),
       })
-    }
-  )
+    });
 
 export const fetchBundles = () => (dispatch, getState) => {
   dispatch({

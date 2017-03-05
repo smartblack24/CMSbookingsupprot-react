@@ -16,21 +16,19 @@ export const fetchBundles = () => {
 };
 
 export const addBundle = (bundle) => {
-  const jwt = getJwt();
   return fetch(URL, {
         method: "post",
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-          'Authorization': jwt
+          'Authorization': getJwt()
         },
         body:encoder(bundle)
     }).then(res => res.json());
 };
 
 export const getBundle = id => {
-  const jwt = getJwt();
   return fetch(`${URL}/${id}`, {
-    headers: {'Authorization': jwt }
+    headers: {'Authorization': getJwt() }
   }).then(res => res.json());
 };
 

@@ -31,12 +31,18 @@ class LicenseForm extends React.Component {
   }
 
   handleSubmit(values) {
-    // const { addLicense, params } = this.props;
-    // const license = {...values};
-    // license['total_slots'] = parseInt(license['total_slots'],10);
-    // license['bundle'] = params.bundleId;
-    // addLicense(license)
-    //   .then(() => this.showAlert());
+    const { editBundle, params } = this.props;
+    let distribution = [];
+    for (const property in values.licenses) {
+      if (values.licenses.hasOwnProperty(property)) {
+        distribution.push({
+           genre: property,
+           licenses: parseInt(values.licenses[property], 10),
+         });
+      }
+    }
+    editBundle({distribution, id: params.bundleId})
+     .then(() => this.showAlert());
     this.props.closeModal();
    }
 
