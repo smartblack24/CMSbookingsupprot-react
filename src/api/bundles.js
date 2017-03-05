@@ -1,3 +1,5 @@
+import encoder from 'form-urlencoded';
+
 const URL = "http://35.167.51.31/api/booksaralive/bundles"
 
 const getJwt = () => {
@@ -8,39 +10,20 @@ const getJwt = () => {
 }
 
 export const fetchBundles = () => {
-  const jwt = getJwt();
   return fetch(URL, {
-    headers: {'Authorization': jwt }
+    headers: {'Authorization': getJwt() }
   }).then(res => res.json());
 };
 
 export const addBundle = (bundle) => {
-  const encodedParams = Object.keys(bundle).map((key) => {
-    // if(key === 'distribution') {
-    //   return '';
-    // }
-    return encodeURIComponent(key) + '=' + encodeURIComponent(bundle[key]);
-  }).join('&');
-//   const parts = [];
-//   bundle['distribution'].forEach(dist => {
-//     parts.push(encodeURIComponent(dist.genre) + '=' +
-//                encodeURIComponent(dist.value));
-//   });
-// for ( var i = 0; i < array.length; ++i )
-//   parts.push(encodeURIComponent(array[i].name) + '=' +
-//              encodeURIComponent(array[i].value));
-//
-// var url = parts.join('&');
-  console.log(encodedParams);
   const jwt = getJwt();
-
   return fetch(URL, {
         method: "post",
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
           'Authorization': jwt
         },
-        body:encodedParams
+        body:encoder(bundle)
     }).then(res => res.json());
 };
 
@@ -50,3 +33,14 @@ export const getBundle = id => {
     headers: {'Authorization': jwt }
   }).then(res => res.json());
 };
+
+export const editBundle = ({id, distribution})  => {
+  return fetch(`${URL}/${id}`,{
+        method: "put",
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+          'Authorization': getJwt()
+        },
+        body:encoder({distribution})
+    }).then(res => res.json());
+}

@@ -43,7 +43,6 @@ class BundleForm extends React.Component {
       }
     }
     delete bundle.licenses;
-    console.log('bundle', bundle);
     const { addBundle, closeModal } = this.props;
 
     addBundle(bundle)
